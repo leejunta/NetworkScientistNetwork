@@ -12,12 +12,13 @@ library(shiny)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
-  # Application title
+  # Title and subtitle
   titlePanel("Network Analysis of Network Scientists"),
   helpText("The network represents coauthorship between network scientists. Each node represents a network scientist and the edges represent collaboration between network scientists. The size of each node represents a centrality measure, and the thickness of each edge represents the frequency of collaborations between two scientists."),
   hr(),
   
   sidebarLayout(
+      #inputs
       sidebarPanel(
           selectInput('centrality',"Type of Centrality:",centralitytypes),
           sliderInput('spread',"Spread of the Network:",
@@ -35,6 +36,7 @@ shinyUI(fluidPage(
           em("M. E. J. Newman, Phys. Rev. E 74, 036104 (2006)"),
           width=3
       ),
+      #output
       mainPanel(
           forceNetworkOutput('plot')
   )
